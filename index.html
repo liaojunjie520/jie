@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little surprise</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .inputText {
+            border-radius: 8px;
+            border: #FF6666 solid 1px;
+            margin-left: 20px;
+            width: 200px;
+            height: 30px;
+            color: #FF6666;
+        }
+        
+        .inputButt {
+            border-radius: 8px;
+            border: #FFF solid 1px;
+            margin-left: 20px;
+            width: 100px;
+            height: 35px;
+            background-color: #FF6666;
+            color: #FFF;
+        }
+        
+        .divP {
+            margin-left: 25px;
+            width: 200px;
+        }
+        
+        input:hover {
+            animation: rubberBand 1s;
+        }
+        
+        @keyframes rubberBand {
+            0% {
+                transform: scale3d(1, 1, 1);
+            }
+            15% {
+                transform: scale3d(1.3, .7, 1);
+            }
+            30% {
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            45% {
+                transform: scale3d(1.2, 0.8, 1);
+            }
+            60% {
+                transform: scale3d(0.85, 1.15, 1);
+            }
+            75% {
+                transform: scale3d(1.1, .9, 1);
+            }
+            90% {
+                transform: scale3d(0.95, 1.05, 1);
+            }
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./plane.gif">
+    </div>
+    <div>
+        <input type="password" placeholder="请输入前往的坐标" class="inputText" id="numb" maxlength="3">
+        <input type="button" value="别BB,给我冲!" class="inputButt" onclick="myFunction()">
+        <div class="divP">
+            <p id="demo"></p>
+        </div>
+        <div>
+            <input type="button" value="快给老子提示" class="inputButt" onclick="getElementById('demo2').innerHTML=time.toLocaleString();alert('3位数,今天的日期')">
+            <p id="demo2" style="color:#FF9933;margin-left: 10px;"></p>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function myFunction() {
+        var x, text;
+        x = document.getElementById("numb").value;
+        if (isNaN(x) || x != 520) {
+            text = "坐标不对,给爷爬,你个憨憨!(..•˘_˘•..)";
+        } else {
+            window.location.href = "./index2.html";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+    var time = new Date();
+</script>
+
+</html>
